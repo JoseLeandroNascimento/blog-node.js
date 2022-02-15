@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+
+    <a class="navbar-brand" href="/">
+        GuiaPress
+    </a>
+
+    <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+
+            <a href="/" class="nav-link">Home</a>
+
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+             Categorias
+            </a>
+            <div class="dropdown-menu">
+
+                <% categorias.forEach(categoria => { %>
+
+                    <a href="/categoria/<%= categoria.slug %>" class="dropdown-item">
+                        <%= categoria.titulo %>
+                    </a>
+
+                    <%})%>
+            </div>
+        </li>
+
+    </ul>
+</nav>
