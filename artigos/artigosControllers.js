@@ -3,12 +3,12 @@ const router = express.Router();
 const Categoria = require("../categorias/Categoria");
 const Artigo = require("./Artigo");
 const slugify = require("slugify");
+const adminAlternative = require('../middwares/adminAlt')
 
-router.get("/admin/artigos", (req, res) => {
+router.get("/admin/artigos", adminAlternative, (req, res) => {
 
     Artigo.findAll({
         include: [{ model: Categoria }]
-
 
     }).then(artigos => {
 
@@ -18,7 +18,7 @@ router.get("/admin/artigos", (req, res) => {
     })
 })
 
-router.get("/admin/artigo/new", (req, res) => {
+router.get("/admin/artigo/new", adminAlternative, (req, res) => {
 
 
     Categoria.findAll().then(categorias => {
